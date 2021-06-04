@@ -1,4 +1,4 @@
-{
+module.exports = {
   "extends": "airbnb",
   "parser": "babel-eslint",
   "env": {
@@ -29,9 +29,10 @@
       "declaration": true,
       "assignment": true,
       "return": true
-    }]
+    }],
+    "linebreak-style": ["error", process.env.NODE_ENV === 'prod' ? "unix" : "windows"]
   },
   "plugins": [
     "react"
   ]
-}
+};
