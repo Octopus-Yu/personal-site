@@ -10,13 +10,15 @@ const ProjectDetail = () => {
   const { project } = location.state || {};
 
   useEffect(() => {
-    import(`../data/ProjectDetail/${slug}.md`)
-      .then((res) => {
-        fetch(res.default)
-          .then((r) => r.text())
-          .then(setMarkdown);
-      })
-      .catch(console.error);
+    if (slug && slug !== 'project-detail') {
+      import(`../data/ProjectDetail/${slug}.md`)
+        .then((res) => {
+          fetch(res.default)
+            .then((r) => r.text())
+            .then(setMarkdown);
+        })
+        .catch(console.error);
+    }
   }, [slug]);
 
   const count = markdown
@@ -39,7 +41,7 @@ const ProjectDetail = () => {
             <p>{project.subtitle}</p> <p>(in about {count} words)</p>
           </div>
         </header>
-        <Markdown>{markdown}</Markdown>
+        {markdown ? <Markdown>{markdown}</Markdown> : <div>Under Construction 🚧🚧🚧...</div>}
       </article>
     </Main>
   );

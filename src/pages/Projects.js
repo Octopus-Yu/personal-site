@@ -19,7 +19,7 @@ const Projects = () => (
       </header>
       {data.map((project) => (
         <Link
-          to={`/projects/${project.slug}`}
+          to={`/projects/${project.slug || 'project-detail'}`}
           key={project.title}
           state={{ project }}
         >
