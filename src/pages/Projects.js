@@ -18,7 +18,13 @@ const Projects = () => (
         </div>
       </header>
       {data.map((project) => (
-        <Cell data={project} key={project.title} />
+        <Link
+          to={`/projects/${project.slug}`}
+          key={project.title}
+          state={{ project }}
+        >
+          <Cell data={project} />
+        </Link>
       ))}
     </article>
   </Main>
