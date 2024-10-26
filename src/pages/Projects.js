@@ -15,7 +15,7 @@ const Projects = () => {
   const allCategories = useMemo(() => {
     const categories = new Set(['All']);
     data.forEach((project) => {
-      project.tags.forEach((tag) => categories.add(tag));
+      project?.tags?.forEach((tag) => categories.add(tag));
     });
     return Array.from(categories);
   }, []);
@@ -35,7 +35,7 @@ const Projects = () => {
 
   const filteredProjects = useMemo(() => {
     if (categoryState.All) return data;
-    return data.filter((project) => project.tags.some((tag) => categoryState[tag]));
+    return data.filter((project) => project?.tags?.some((tag) => categoryState[tag]));
   }, [categoryState]);
 
   return (

@@ -11,13 +11,15 @@ const Cell = ({ data }) => (
           <time className="published">
             {dayjs(data.date).format('MMMM, YYYY')}
           </time>
-          <div className="tags">
-            {data.tags.map((tag) => (
-              <span key={tag} className="tag">
-                {tag}
-              </span>
-            ))}
-          </div>
+          {data?.tags?.length > 0 && (
+            <div className="tags">
+              {data?.tags?.map((tag) => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </header>
       <div className="image">
@@ -27,8 +29,7 @@ const Cell = ({ data }) => (
         <p>{data.desc}</p>
       </div>
     </article>
-  </div>
-);
+  </div>);
 
 Cell.propTypes = {
   data: PropTypes.shape({
@@ -36,7 +37,7 @@ Cell.propTypes = {
     image: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
 

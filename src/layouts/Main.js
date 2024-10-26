@@ -35,13 +35,6 @@ Main.propTypes = {
   fullPage: PropTypes.bool,
   title: PropTypes.string,
   description: PropTypes.string,
-};
-
-Main.defaultProps = {
-  children: null,
-  fullPage: false,
-  title: null,
-  description: "Michael D'Angelo's personal website.",
-};
+}.isRequired;
 
 export default Main;
