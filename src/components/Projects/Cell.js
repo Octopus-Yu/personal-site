@@ -7,9 +7,18 @@ const Cell = ({ data }) => (
     <article className="mini-post">
       <header>
         <h3>{data.title}</h3>
-        <time className="published">
-          {dayjs(data.date).format('MMMM, YYYY')}
-        </time>
+        <div className="meta-info">
+          <time className="published">
+            {dayjs(data.date).format('MMMM, YYYY')}
+          </time>
+          <div className="tags">
+            {data.tags.map((tag) => (
+              <span key={tag} className="tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </header>
       <div className="image">
         <img src={`${process.env.PUBLIC_URL}${data.image}`} alt={data.title} />
@@ -27,6 +36,7 @@ Cell.propTypes = {
     image: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
 

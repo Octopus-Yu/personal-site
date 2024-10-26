@@ -1,0 +1,28 @@
+.meta-info {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.6em;
+  font-family: _font(family-heading);
+  font-weight: _font(weight-heading);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+  border: none;
+  color: _palette(fg-bold);
+  box-shadow: -1px 3px 7px rgba(0, 0, 0, 0.2);
+
+  opacity: 0.8;
+}

@@ -11,6 +11,7 @@ const data = [
       + 'or debit cards and rounded up your purchases to donate the balance to '
       + 'the charity of your choice.',
     slug: 'template-project-detail',
+    tags: ['Web Development', 'Hackathon', 'Social Impact'],
   },
   {
     title: 'Harvest',
@@ -22,6 +23,7 @@ const data = [
       'Won ~ $7000 in prizes for an advanced, low cost monitoring solution '
       + 'for crops. Harvest was designed to catch irrigation leaks, overwatering, '
       + 'and nutrient deficiencies at an affordable price for the developing world.',
+    tags: ['Web Development', 'Hackathon', 'Agriculture'],
   },
   {
     title: 'Space Potato',
@@ -33,6 +35,7 @@ const data = [
       'Launched a potato battery powered weather balloon with two cameras '
       + 'and gps transponder. Resulting photos were published in a coffee table book. '
       + 'You can email me for a copy.',
+    tags: ['Web Development', 'Kickstarter', 'Weather'],
   },
   {
     title: 'Cat Detector',
@@ -43,6 +46,7 @@ const data = [
       'Trained a convolutional neural network to classify between ~ 80 cats breeds. '
       + 'Over 60,000 cats were classified before server bills made the project too expensive '
       + 'to continue hosting.',
+    tags: ['Web Development', 'Machine Learning', 'Computer Vision'],
   },
 ];
 
