@@ -6,7 +6,7 @@ const FilterBar = ({ categories, handleChildClick }) => (
     <div className="skill-button-container">
       {categories.map((cat) => (
         <button
-          className={`skillbutton ${cat.active ? 'active' : ''}`}
+          className={`skillbutton${cat.active ? '-active' : ''}`}
           type="button"
           key={cat.name}
           onClick={() => handleChildClick(cat.name)}
