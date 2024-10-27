@@ -1,12 +1,12 @@
 .projects-container {
   position: relative;
-  transition: height 0.3s ease;
+  transition: height 0.5s ease;
   .project-card {
     position: absolute;
     width: 100%;
     left: 0;
     transition:
-      transform 0.3s ease,
+      transform 0.5s ease,
       opacity 0.3s ease;
   }
 
