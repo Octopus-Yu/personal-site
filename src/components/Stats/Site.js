@@ -8,8 +8,9 @@ const Stats = () => {
   const fetchData = useCallback(async () => {
     // request must be authenticated if private
     const token = process.env.MY_GITHUB_TOKEN;
+    const gitApiPath = process.env.MY_GITHUB_API_PATH;
     const res = await fetch(
-      'https://api.github.com/repos/...',
+      gitApiPath,
       {
         headers: {
           Authorization: `Bearer ${token}`,
