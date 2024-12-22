@@ -24,3 +24,5 @@ const Stats = () => (
     </article>
   </Main>
 );
+
+export default Stats;
