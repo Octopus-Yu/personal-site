@@ -1,28 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useCallback, useEffect } from 'react';
 
-import Main from '../layouts/Main';
+import Table from './Table';
+import initialData from '../../data/stats/site';
 
-import Personal from '../components/Stats/Personal';
-import Site from '../components/Stats/Site';
+const Stats = () => {
+  const [data, setResponseData] = useState(initialData);
+  // TODO think about persisting this somewhere
+  const fetchData = useCallback(async () => {
+    // request must be authenticated if private
+    const token = 'your_github_token';
+    const res = await fetch('https://api.github.com/repos/...', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+      },
+    });
+    const resData = await res.json();
+    setResponseData(
+      initialData.map((field) => ({
+        ...field,
+        // update value if value was returned by call to github
+        value: Object.keys(resData).includes(field.key)
+          ? resData[field.key]
+          : field.value,
+      }))
+    );
+  }, []);
 
-const Stats = () => (
-  <Main
-    title="Stats"
-    description="Some statistics about Michael D'Angelo and mldangelo.com"
-  >
-    <article className="post" id="stats">
-      <header>
-        <div className="title">
-          <h2>
-            <Link to="/stats">Stats</Link>
-          </h2>
-        </div>
-      </header>
-      <Personal />
-      <Site />
-    </article>
-  </Main>
-);
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return (
+    <div>
+      <h3>Some stats about this site</h3>
+      <Table data={data} />
+    </div>
+  );
+};
 
 export default Stats;
