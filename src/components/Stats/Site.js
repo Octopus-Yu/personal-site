@@ -7,8 +7,8 @@ const Stats = () => {
   const [data, setResponseData] = useState(initialData);
   const fetchData = useCallback(async () => {
     // request must be authenticated if private
-    const token = process.env.MY_GITHUB_TOKEN;
-    const gitApiPath = process.env.MY_GITHUB_API_PATH;
+    const token = process.env.REACT_APP_GITHUB_TOKEN;
+    const gitApiPath = process.env.REACT_APP_GITHUB_API_PATH;
     const res = await fetch(
       gitApiPath,
       {
