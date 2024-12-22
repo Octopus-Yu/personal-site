@@ -5,11 +5,17 @@ import initialData from '../../data/stats/site';
 
 const Stats = () => {
   const [data, setResponseData] = useState(initialData);
-  // TODO think about persisting this somewhere
   const fetchData = useCallback(async () => {
     // request must be authenticated if private
+    const token = process.env.MY_GITHUB_TOKEN;
     const res = await fetch(
-      'https://api.github.com/repos/mldangelo/personal-site',
+      'https://api.github.com/repos/...',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: 'application/vnd.github.v3+json',
+        },
+      },
     );
     const resData = await res.json();
     setResponseData(
