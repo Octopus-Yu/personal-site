@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './layouts/Main'; // fallback for lazy pages
+import Loading from './components/Template/Loading';
 import './static/css/main.scss'; // All of our styles
 import ProjectDetail from './pages/ProjectDetail';
 
@@ -19,7 +19,7 @@ const Stats = lazy(() => import('./pages/Stats'));
 
 const App = () => (
   <BrowserRouter basename={PUBLIC_URL}>
-    <Suspense fallback={<Main />}>
+    <Suspense fallback={<Loading fullPage />}>
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
